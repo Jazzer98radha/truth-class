@@ -44,6 +44,8 @@ html,body{margin:0}
 .ask svg{flex:none}
 .ask p{margin:0;font-family:var(--serif);font-size:18px;line-height:1.3}
 .ask b{color:var(--glow);font-weight:600}
+.ask .contact{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:6px;font-family:var(--body);font-size:14px}
+.ask .contact a{color:var(--text);text-decoration:underline;text-decoration-color:var(--line-strong);text-underline-offset:3px;white-space:nowrap}
 html{background:var(--night)}
 body{
   background:
@@ -94,14 +96,26 @@ h1{
 .next strong{font-family:var(--serif);font-weight:600;font-size:19px}
 .count{font-variant-numeric:tabular-nums;font-family:var(--display);font-size:20px;color:var(--glow);white-space:nowrap;text-shadow:0 0 14px rgba(191,243,228,.45)}
 
-/* Day tabs */
-.tabs{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:5px;border-radius:999px;background:rgba(0,0,0,.28);border:1px solid var(--line)}
-.tabs button{all:unset;cursor:pointer;text-align:center;padding:10px 8px;border-radius:999px;font-family:var(--display);font-weight:500;font-size:13px;letter-spacing:.08em;color:var(--muted);transition:background .3s,color .3s,box-shadow .3s}
-.tabs button[aria-selected="true"]{background:linear-gradient(135deg,var(--mint),var(--lilac));color:var(--on-glow);box-shadow:0 0 18px rgba(191,243,228,.35)}
-.tabs button:focus-visible{outline:2px solid var(--glow);outline-offset:2px}
+/* Two-day overview */
+.two-days{display:flex;flex-direction:column;gap:10px}
+.two-days h2{margin:0;text-align:center;font-family:var(--display);font-weight:500;font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:var(--mint)}
+.day-pick{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.day-pick a{display:flex;flex-direction:column;align-items:center;gap:2px;padding:14px 8px 12px;text-decoration:none;color:var(--text);text-align:center;transition:border-color .25s,box-shadow .25s}
+.day-pick a:hover{border-color:var(--line-strong);box-shadow:0 0 22px rgba(191,243,228,.2)}
+.day-pick a:focus-visible{outline:2px solid var(--glow);outline-offset:2px}
+.day-pick .tag{font-family:var(--display);font-size:11px;letter-spacing:.24em;color:var(--lilac)}
+.day-pick .big{font-family:var(--display);font-size:40px;line-height:1.05;color:var(--glow);text-shadow:0 0 18px rgba(191,243,228,.4)}
+.day-pick .dname{font-family:var(--serif);font-weight:600;font-size:20px}
+.day-pick .dtime{font-size:13px;color:var(--muted)}
+.day-pick .go{margin-top:6px;font-size:12px;color:var(--mint);font-weight:600}
+.how{display:flex;gap:10px;align-items:center;padding:12px 14px;font-size:14.5px;line-height:1.4}
+.how svg{flex:none}
+.how b{color:var(--glow)}
 
-/* Day panel */
-.day{display:flex;flex-direction:column;gap:14px}
+/* Day sections */
+.day{display:flex;flex-direction:column;gap:14px;scroll-margin-top:16px}
+.day-label{display:flex;align-items:center;gap:12px;font-family:var(--display);font-size:13px;letter-spacing:.3em;color:var(--lilac);text-transform:uppercase;margin-top:8px}
+.day-label::before,.day-label::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--line-strong),transparent)}
 .date{display:flex;align-items:center;gap:16px;padding:0 4px}
 .date .num{font-family:var(--display);font-size:58px;line-height:1;color:var(--glow);text-shadow:0 0 22px rgba(191,243,228,.45)}
 .date .txt{display:flex;flex-direction:column}
@@ -181,15 +195,42 @@ textarea#fallback{width:100%;min-height:120px;background:rgba(0,0,0,.3);color:va
 
   <div class="ask glass">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#cbbcff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M9.6 9.5a2.5 2.5 0 0 1 4.8.8c0 1.7-2.4 2-2.4 3.4"/><circle cx="12" cy="16.6" r=".6" fill="#cbbcff"/></svg>
-    <p>Have a new question? Please send it to <b>Kirit</b> before class.</p>
+    <div>
+      <p>Have a new question? Please send it to <b>Kirit</b> before class.</p>
+      <div class="contact">
+        <a href="mailto:9k.patel9@gmail.com?subject=Question%20for%20Truth%20Class">9k.patel9@gmail.com</a>
+        <a href="tel:+64224262862">022 426 2862</a>
+      </div>
+    </div>
   </div>
 
-  <div class="tabs" role="tablist" aria-label="Choose a day">
-    <button role="tab" id="tab-fri" aria-selected="true" aria-controls="panel-fri">Fri 13 Nov</button>
-    <button role="tab" id="tab-sat" aria-selected="false" aria-controls="panel-sat">Sat 21 Nov</button>
+  <div class="two-days">
+    <h2>Two separate days</h2>
+    <div class="day-pick">
+      <a class="glass" href="#day-fri">
+        <span class="tag">DAY 1</span>
+        <span class="big">13</span>
+        <span class="dname">Friday, Nov</span>
+        <span class="dtime">7:00 – 9:00 pm</span>
+        <span class="go">See Friday ↓</span>
+      </a>
+      <a class="glass" href="#day-sat">
+        <span class="tag">DAY 2</span>
+        <span class="big">21</span>
+        <span class="dname">Saturday, Nov</span>
+        <span class="dtime">2:00 – 5:00 pm · 3 parts</span>
+        <span class="go">See Saturday ↓</span>
+      </a>
+    </div>
   </div>
 
-  <section class="day" id="panel-fri" role="tabpanel" aria-labelledby="tab-fri">
+  <div class="how glass">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9fe6d2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    <span>To join online, tap the glowing <b>Join on Teams</b> button for your day and time below.</span>
+  </div>
+
+  <section class="day" id="day-fri">
+    <div class="day-label">Day 1</div>
     <div class="date">
       <div class="num">13</div>
       <div class="txt"><b>Friday Truth Class</b><span>Friday, 13 November 2026</span></div>
@@ -204,7 +245,8 @@ textarea#fallback{width:100%;min-height:120px;background:rgba(0,0,0,.3);color:va
     <ul class="sessions" id="fri-list"></ul>
   </section>
 
-  <section class="day" id="panel-sat" role="tabpanel" aria-labelledby="tab-sat" hidden>
+  <section class="day" id="day-sat">
+    <div class="day-label">Day 2</div>
     <div class="date">
       <div class="num">21</div>
       <div class="txt"><b>Saturday Truth Class</b><span>Saturday, 21 November 2026 · three parts</span></div>
@@ -256,7 +298,7 @@ function render(){
       const li = document.createElement("li");
       li.className="session glass";
       li.innerHTML = `
-        <div class="s-head"><h3>${day==="fri"?"Online":s.name}</h3><span class="time">${s.label}</span></div>
+        <div class="s-head"><h3>${day==="fri"?"Friday · Online":"Saturday · "+s.name}</h3><span class="time">${s.label}</span></div>
         <div class="actions">
           <a class="btn join" href="${s.url}" target="_blank" rel="noopener">${icoVideo} Join on Teams</a>
           <a class="btn ghost" href="${gcal(s)}" target="_blank" rel="noopener" aria-label="Add ${s.full||s.name} to calendar" title="Add to calendar">${icoCal}</a>
@@ -284,7 +326,9 @@ const WA_TEXT = `✨ *Truth Class* 🌙
 
 It's that time again! Come join us for self-inquiry and contemplation.
 
-🙏 Have a new question? Please send it to Kirit before class.
+🙏 Have a new question? Please send it to Kirit before class:
+✉️ 9k.patel9@gmail.com
+📞 022 426 2862
 
 *Friday Truth Class*
 📅 Friday 13 November
@@ -310,13 +354,6 @@ document.addEventListener("click",e=>{
 });
 document.getElementById("copyAll").addEventListener("click",()=>copy(WA_TEXT,"Invite copied, paste it into WhatsApp"));
 
-// Tabs
-const tabs=[...document.querySelectorAll('[role="tab"]')];
-function select(id){
-  tabs.forEach(t=>{const on=t.id===id; t.setAttribute("aria-selected",on); document.getElementById(t.getAttribute("aria-controls")).hidden=!on;});
-  try{localStorage.setItem("tc-tab",id)}catch(_){}
-}
-tabs.forEach(t=>t.addEventListener("click",()=>select(t.id)));
 
 // Countdown to next session (NZ time, NZDT = UTC+13 in November)
 function nzDate(s){return new Date(`${s.date}T${s.start}:00+13:00`);}
@@ -362,9 +399,6 @@ function motes(){
 }
 
 render();
-let saved=null; try{saved=localStorage.getItem("tc-tab")}catch(_){}
-const firstSat = new Date() > new Date("2026-11-13T20:00:00+13:00");
-select(saved && document.getElementById(saved) ? saved : (firstSat?"tab-sat":"tab-fri"));
 tick(); setInterval(tick,30000);
 motes();
 </script>
