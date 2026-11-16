@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Fri 13 Nov 7pm · Sat 21 Nov 2–5pm. Come join us for self-inquiry and contemplation, in East Tamaki or online. Tap to join.">
+<meta name="description" content="Saturday 21 Nov, 2–5pm. Come join us for self-inquiry and contemplation, in East Tamaki or online. Tap to join.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="You're invited: Truth Class ☀️">
-<meta property="og:description" content="Fri 13 Nov 7pm · Sat 21 Nov 2–5pm. Come join us for self-inquiry and contemplation, in East Tamaki or online. Tap to join.">
+<meta property="og:description" content="Saturday 21 Nov, 2–5pm. Come join us for self-inquiry and contemplation, in East Tamaki or online. Tap to join.">
 <meta property="og:image" content="https://jazzer98radha.github.io/truth-class/preview.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -220,7 +220,7 @@ textarea#fallback{width:100%;min-height:120px;background:rgba(255,255,255,.8);co
   </header>
 
   <div class="next glass" id="next">
-    <div><small>Next session</small><strong id="nextName">Friday Truth Class</strong></div>
+    <div><small>Next session</small><strong id="nextName">Saturday Truth Class</strong></div>
     <div class="count" id="count">7 days</div>
   </div>
 
@@ -235,50 +235,12 @@ textarea#fallback{width:100%;min-height:120px;background:rgba(255,255,255,.8);co
     </div>
   </div>
 
-  <div class="two-days">
-    <h2>Two separate days</h2>
-    <p class="note">Both at <a href="https://www.google.com/maps/search/?api=1&query=41B+Trugood+Drive%2C+East+Tamaki%2C+Auckland" target="_blank" rel="noopener" style="color:var(--text)">41B Trugood Drive, East Tamaki</a> · in person or online</p>
-    <div class="day-pick">
-      <a class="glass" href="#day-fri">
-        <span class="tag">DAY 1</span>
-        <span class="big">13</span>
-        <span class="dname">Friday, Nov</span>
-        <span class="dtime">7:00 – 9:00 pm</span>
-        <span class="go">See Friday ↓</span>
-      </a>
-      <a class="glass" href="#day-sat">
-        <span class="tag">DAY 2</span>
-        <span class="big">21</span>
-        <span class="dname">Saturday, Nov</span>
-        <span class="dtime">2:00 – 5:00 pm · 3 parts</span>
-        <span class="go">See Saturday ↓</span>
-      </a>
-    </div>
-  </div>
-
   <div class="how glass">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#d9700c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-    <span>To join online, tap the glowing <b>Join on Teams</b> button for your day and time below.</span>
+    <span>To join online, tap the glowing <b>Join on Teams</b> button for the part you're joining below.</span>
   </div>
 
-  <section class="day" id="day-fri">
-    <div class="day-label">Day 1</div>
-    <div class="date">
-      <div class="num">13</div>
-      <div class="txt"><b>Friday Truth Class</b><span>Friday, 13 November 2026</span></div>
-    </div>
-    <div class="venue glass">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d9700c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
-      <div>
-        <a href="https://www.google.com/maps/search/?api=1&query=41B+Trugood+Drive%2C+East+Tamaki%2C+Auckland" target="_blank" rel="noopener">41B Trugood Drive, East Tamaki</a>
-        <small>In person 7:00 – 9:00 pm · or join online below</small>
-      </div>
-    </div>
-    <ul class="sessions" id="fri-list"></ul>
-  </section>
-
   <section class="day" id="day-sat">
-    <div class="day-label">Day 2</div>
     <div class="date">
       <div class="num">21</div>
       <div class="txt"><b>Saturday Truth Class</b><span>Saturday, 21 November 2026 · three parts</span></div>
@@ -307,8 +269,6 @@ textarea#fallback{width:100%;min-height:120px;background:rgba(255,255,255,.8);co
 
 <script>
 const SESSIONS = [
-  {day:"fri", name:"Friday Truth Class", date:"2026-11-13", start:"19:00", end:"20:00", label:"7:00 – 8:00 pm",
-   url:"https://teams.live.com/meet/9375136395981?p=r6rimUoi3KLJmriJ8u"},
   {day:"sat", name:"Part 1", full:"Saturday Truth Class · Part 1", date:"2026-11-21", start:"14:00", end:"15:00", label:"2:00 – 3:00 pm",
    url:"https://teams.live.com/meet/9322415557300?p=iBAD7gdbkXRcw6Xv6V"},
   {day:"sat", name:"Part 2", full:"Saturday Truth Class · Part 2", date:"2026-11-21", start:"15:00", end:"16:00", label:"3:00 – 4:00 pm",
@@ -331,13 +291,13 @@ function gcal(s){
 }
 
 function render(){
-  for (const day of ["fri","sat"]){
+  for (const day of ["sat"]){
     const ul = document.getElementById(day+"-list");
     SESSIONS.filter(s=>s.day===day).forEach(s=>{
       const li = document.createElement("li");
       li.className="session glass";
       li.innerHTML = `
-        <div class="s-head"><h3>${day==="fri"?"Friday · Online":"Saturday · "+s.name}</h3><span class="time">${s.label}</span></div>
+        <div class="s-head"><h3>${"Saturday · "+s.name}</h3><span class="time">${s.label}</span></div>
         <div class="actions">
           <a class="btn join" href="${s.url}" target="_blank" rel="noopener">${icoVideo} Join on Teams</a>
           <a class="btn ghost" href="${gcal(s)}" target="_blank" rel="noopener" aria-label="Add ${s.full||s.name} to calendar" title="Add to calendar">${icoCal}</a>
@@ -369,23 +329,16 @@ It's that time again! Come join us for self-inquiry and contemplation.
 ✉️ 9k.patel9@gmail.com
 📞 022 426 2862
 
-*Friday Truth Class*
-📅 Friday 13 November
-📍 41B Trugood Drive, East Tamaki
-⏰ 7–9pm
-💻 Online 7–8pm:
-${SESSIONS[0].url}
-
 *Saturday Truth Class*
 📅 Saturday 21 November
 📍 41B Trugood Drive, East Tamaki
 ⏰ 2–5pm in person, or online:
 ⏰ Part 1 · 2–3pm
-${SESSIONS[1].url}
+${SESSIONS[0].url}
 ⏰ Part 2 · 3–4pm
-${SESSIONS[2].url}
+${SESSIONS[1].url}
 ⏰ Part 3 · 4–5pm
-${SESSIONS[3].url}
+${SESSIONS[2].url}
 
 Tap a link or paste it in a browser to join.`;
 
